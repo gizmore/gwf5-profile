@@ -14,7 +14,7 @@ $module = Module_Profile::instance();
     <?php foreach ($module->getUserSettings() as $gdoType) : ?>
     <div>
       <label><?php echo $gdoType->displayLabel(); ?></label>
-      <i><?php echo $gdoType->renderCell(); ?></i>
+      <i><?php echo GWF_UserSetting::userGet($user, $gdoType->name)->getGDOValue(); ?></i>
     </div>
     <?php endforeach; ?>
   </md-card-content>
