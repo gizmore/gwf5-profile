@@ -1,6 +1,6 @@
 <?php
 $user instanceof GWF_User;
-$profile instanceof GWF_Profile;
+// $profile instanceof GWF_Profile;
 $module = Module_Profile::instance();
 ?>
 <md-card>
@@ -17,10 +17,6 @@ $module = Module_Profile::instance();
       <i><?php echo $gdoType->renderCell(); ?></i>
     </div>
     <?php endforeach; ?>
-    <div><?php l('msg_by', [$username]); ?></div>
-    <div><?php l('msg_title', [GWF_HTML::escape($message->getTitle())]); ?></div>
-    <hr/>
-    <div><?php echo GWF_HTML::escape($message->getMessage()); ?></div>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
     <?php echo GDO_Back::make()->renderCell(); ?>
