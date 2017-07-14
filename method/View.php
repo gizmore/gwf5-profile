@@ -8,11 +8,14 @@ final class Profile_View extends GWF_Method
 	
 	public function templateProfile(string $userid)
 	{
-		$user = GWF_User::current();
-		
 		$profileUser = GWF_User::table()->find($userid);
-// 		$profile = GWF_Profile::forUser($profileUser);
-		
+		return $this->templatePHP('profile.php', ['user' => $profileUser]);
+	}
+	
+	public function onProfileView(GWF_User $profileUser)
+	{
+		$user = GWF_User::current();
+		$userid = $profileUser->getID();
 		# Increase views
 		if (!$user->tempGet("profileview_$userid"))
 		{
@@ -20,6 +23,5 @@ final class Profile_View extends GWF_Method
 			$user->tempSet("profileview_$userid", 1);
 		}
 		
-		return $this->templatePHP('profile.php', ['user' => $profileUser]);
 	}
 }
