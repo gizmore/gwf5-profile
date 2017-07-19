@@ -19,7 +19,7 @@ final class Profile_View extends GWF_Method
 		# Increase views
 		if (!$user->tempGet("profileview_$userid"))
 		{
-			$views = GWF_UserSetting::moduleUserInc($this->module->getID(), $profileUser, 'profile_views');
+			$views = GWF_UserSetting::userInc($profileUser, 'profile_views');
 			$user->tempSet("profileview_$userid", 1);
 		}
 		
